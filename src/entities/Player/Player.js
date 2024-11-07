@@ -21,9 +21,4 @@ export class Player {
         // On l'ajoute au monde physique
         this.world.world.addBody(this.body);
     }
-
-    update()
-    {
-        console.log('ok')
-    }
 }

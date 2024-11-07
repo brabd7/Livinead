@@ -20,7 +20,7 @@ export class Game {
     {
         this.scene = new Scene(THREE);
         this.world = new World(CANNON);
-        this.camera = new Camera(THREE);
+        this.camera = new Camera(THREE, this);
         this.renderer = new Renderer(THREE);
 
         // Initialiser la map
