@@ -1,9 +1,9 @@
 export class Floor {
-    constructor(THREE, scene)
+    constructor(scene, world)
     {
         // Constructeur
-        this.THREE = THREE;
         this.scene = scene;
+        this.world = world;
 
         // Options
         this.width = 10;
@@ -16,14 +16,14 @@ export class Floor {
     // Sol visuel
     visualFloor()
     {
-        const geometry = new this.THREE.PlaneGeometry(this.width, this.heigth);
-        const material = new this.THREE.MeshBasicMaterial();
-        const mesh = new this.THREE.Mesh(geometry, material);
+        const geometry = new this.scene.THREE.PlaneGeometry(this.width, this.heigth);
+        const material = new this.scene.THREE.MeshBasicMaterial();
+        const mesh = new this.scene.THREE.Mesh(geometry, material);
 
         // Rotation pour que le sol soit horizontal
         mesh.rotation.x = -Math.PI / 2;
 
         // L'ajouter à la scène
-        this.scene.add(mesh);
+        this.scene.scene.add(mesh);
     }
 }
