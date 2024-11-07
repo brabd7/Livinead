@@ -4,8 +4,8 @@ export function animate(scene, camera, renderer, world)
     requestAnimationFrame(() => animate(scene, camera, renderer, world));
 
     // Mettre à jour le monde physique
-    world.step(1 / 60);
-    
+    world.step(1 / 60); 
+
     // Rendu
     renderer.render(scene, camera);
 }

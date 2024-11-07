@@ -8,9 +8,11 @@ export class Floor {
         // Options
         this.width = 10;
         this.heigth = 10;
+        this.mass = 0;
 
         // Création du sol visuel et physique
         this.visualFloor();
+        this.physicalFloor();
     }
 
     // Sol visuel
@@ -25,5 +27,19 @@ export class Floor {
 
         // L'ajouter à la scène
         this.scene.scene.add(mesh);
+    }
+
+    // Sol physique
+    physicalFloor()
+    {
+        const body = new this.world.CANNON.Body({mass: this.mass});
+        const shape = new this.world.CANNON.Plane();
+        body.addShape(shape);
+
+        // Rotation pour que le sol soit horizontal
+        body.quaternion.setFromEuler(-Math.PI / 2, 0, 0);
+
+        // L'ajouter au monde physique
+        this.world.world.addBody(body);
     }
 }
