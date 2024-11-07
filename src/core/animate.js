@@ -1,11 +1,14 @@
-export function animate(scene, camera, renderer, world)
+export function animate(game)
 {
     // Boucle d'animation
-    requestAnimationFrame(() => animate(scene, camera, renderer, world));
+    requestAnimationFrame(() => animate(game));
 
-    // Mettre à jour le monde physique
-    world.step(1 / 60); 
+    // Le monde physique
+    game.world.world.step(1 / 60); 
 
-    // Rendu
-    renderer.render(scene, camera);
+    // Mettre à jour le joueur
+    game.player.update();
+
+    // Le rendu
+    game.renderer.renderer.render(game.scene.scene, game.camera.camera);
 }

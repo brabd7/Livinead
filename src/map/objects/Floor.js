@@ -1,9 +1,12 @@
 export class Floor {
-    constructor(scene, world)
+    constructor(game)
     {
         // Constructeur
-        this.scene = scene;
-        this.world = world;
+        this.game = game;
+        this.scene = this.game.scene;
+        this.world = this.game.world;
+        this.THREE = this.scene.THREE;
+        this.CANNON = this.world.CANNON;
 
         // Options
         this.width = 10;
@@ -11,16 +14,16 @@ export class Floor {
         this.mass = 0;
 
         // Création du sol visuel et physique
-        this.visualFloor();
-        this.physicalFloor();
+        this.createFloor();
+        this.createBody();
     }
 
     // Sol visuel
-    visualFloor()
+    createFloor()
     {
-        const geometry = new this.scene.THREE.PlaneGeometry(this.width, this.heigth);
-        const material = new this.scene.THREE.MeshBasicMaterial();
-        const mesh = new this.scene.THREE.Mesh(geometry, material);
+        const geometry = new this.THREE.PlaneGeometry(this.width, this.heigth);
+        const material = new this.THREE.MeshBasicMaterial();
+        const mesh = new this.THREE.Mesh(geometry, material);
 
         // Rotation pour que le sol soit horizontal
         mesh.rotation.x = -Math.PI / 2;
@@ -30,11 +33,12 @@ export class Floor {
     }
 
     // Sol physique
-    physicalFloor()
+    createBody()
     {
-        const body = new this.world.CANNON.Body({mass: this.mass});
-        const shape = new this.world.CANNON.Plane();
-        body.addShape(shape);
+        const body = new this.CANNON.Body({
+            mass: this.mass,
+            shape: new this.CANNON.Plane()
+        });
 
         // Rotation pour que le sol soit horizontal
         body.quaternion.setFromEuler(-Math.PI / 2, 0, 0);

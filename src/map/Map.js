@@ -1,13 +1,12 @@
 import { Floor } from './objects/Floor';
 
 export class Map {
-    constructor(scene, world)
+    constructor(game)
     {
         // Constructeur
-        this.scene = scene;
-        this.world = world;
+        this.game = game;
 
         // Initialiser les objets de la map
-        this.floor = new Floor(this.scene, this.world);
+        this.floor = new Floor(this.game);
     }
 }
