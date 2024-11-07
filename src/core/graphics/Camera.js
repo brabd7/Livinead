@@ -9,12 +9,12 @@ export class Camera {
         this.camera.position.set(0, 1, 0);
     }
 
-    // MAJ de la caméra suivant le corps physique du joueur
+    // Mise à jour de la caméra suivant le corps physique du joueur
     update()
     {
         if (this.game.player)
         {
-            this.camera.position.copy(this.game.player.body.position);
+            this.camera.position.copy(this.game.player.playerPhysics.body.position);
         }
     }
 }

@@ -14,12 +14,12 @@ export class Floor {
         this.mass = 0;
 
         // Création du sol visuel et physique
-        this.createFloor();
-        this.createBody();
+        this.createVisualFloor();
+        this.createPhysicalBody();
     }
 
     // Sol visuel
-    createFloor()
+    createVisualFloor()
     {
         const geometry = new this.THREE.PlaneGeometry(this.width, this.heigth);
         const material = new this.THREE.MeshBasicMaterial();
@@ -33,7 +33,7 @@ export class Floor {
     }
 
     // Sol physique
-    createBody()
+    createPhysicalBody()
     {
         const body = new this.CANNON.Body({
             mass: this.mass,
