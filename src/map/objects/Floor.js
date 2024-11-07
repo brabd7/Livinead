@@ -8,7 +8,7 @@ export class Floor {
         this.THREE = this.scene.THREE;
         this.CANNON = this.world.CANNON;
 
-        // Options
+        // Paramètres
         this.width = 10;
         this.heigth = 10;
         this.mass = 0;

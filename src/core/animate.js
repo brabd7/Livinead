@@ -6,6 +6,9 @@ export function animate(game)
     // Le monde physique
     game.world.world.step(1 / 60); 
 
+    // Mettre à jour le joueur
+    game.player.update();
+
     // Mettre à jour la caméra
     game.camera.update();
 
