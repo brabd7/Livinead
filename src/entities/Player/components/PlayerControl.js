@@ -20,16 +20,16 @@ export class PlayerControl {
             switch (event.code)
             {
                 case "KeyW":
-                    this.playerMovements.moveForward = true;
+                    this.playerMovement.moveForward = true;
                     break;
                 case "KeyS":
-                    this.playerMovements.moveBackward = true;
+                    this.playerMovement.moveBackward = true;
                     break;
                 case "KeyD":
-                    this.playerMovements.moveRight = true;
+                    this.playerMovement.moveRight = true;
                     break;
                 case "KeyQ":
-                    this.playerMovements.moveLeft = true;
+                    this.playerMovement.moveLeft = true;
                     break;
                 default:
                     break;
@@ -40,16 +40,16 @@ export class PlayerControl {
             switch (event.code)
             {
                 case "KeyW":
-                    this.playerMovements.moveForward = false;
+                    this.playerMovement.moveForward = false;
                     break;
                 case "KeyS":
-                    this.playerMovements.moveBackward = false;
+                    this.playerMovement.moveBackward = false;
                     break;
                 case "KeyD":
-                    this.playerMovements.moveRight = false;
+                    this.playerMovement.moveRight = false;
                     break;
                 case "KeyQ":
-                    this.playerMovements.moveLeft = false;
+                    this.playerMovement.moveLeft = false;
                     break;
                 default:
                     break;
