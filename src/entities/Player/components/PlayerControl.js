@@ -12,6 +12,7 @@ export class PlayerControl {
     initControl()
     {
         this.moveControl();
+        this.jumpControl();
     }
 
     moveControl()
@@ -53,6 +54,16 @@ export class PlayerControl {
                     break;
                 default:
                     break;
+            }
+        })
+    }
+
+    jumpControl()
+    {
+        document.addEventListener('keydown', (event) => {
+            if (event.code == "Space")
+            {
+                this.playerMovement.jump = true;
             }
         })
     }

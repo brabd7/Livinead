@@ -9,11 +9,13 @@ export class PlayerMovement {
 
         // Paramètres
         this.moveSpeed = 15;
+        this.jumpForce = 4.5;
 
         this.moveForward = false;
         this.moveBackward = false;
         this.moveRight = false;
         this.moveLeft = false;
+        this.jump = false;
 
         this.currentPlayerDirection = new this.THREE.Vector3();
         this.rightOfCurrentPlayerDirection = new this.THREE.Vector3();
@@ -25,6 +27,7 @@ export class PlayerMovement {
         this.getRightOfCurrentPlayerDirection();
         this.forwardMovement();
         this.rightMovement();
+        this.jumpMovement();
     }
 
     getCurrentPlayerDirection()
@@ -67,6 +70,15 @@ export class PlayerMovement {
         {
             this.playerBody.velocity.x -= this.rightOfCurrentPlayerDirection.x * this.moveSpeed;
             this.playerBody.velocity.z -= this.rightOfCurrentPlayerDirection.z * this.moveSpeed;
+        }
+    }
+
+    jumpMovement()
+    {
+        if (this.jump && this.playerBody.position.y <= 1)
+        {
+            this.playerBody.velocity.y += this.jumpForce;
+            this.jump = false;
         }
     }
 }
