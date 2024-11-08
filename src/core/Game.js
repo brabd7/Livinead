@@ -24,6 +24,9 @@ export class Game {
         this.camera = new Camera(THREE, this);
         this.renderer = new Renderer(THREE);
 
+        // Ajouter la caméra à la scène
+        this.scene.scene.add(this.camera.camera);
+
         // Initialiser le gestionnaire d'audio
         this.audioManager = new AudioManager(THREE, this);
 

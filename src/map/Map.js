@@ -1,4 +1,5 @@
-import { Floor } from './objects/Floor';
+import { Objects } from "./objects/Objects";
+import { Lights } from "./lights/Lights";
 
 export class Map {
     constructor(game)
@@ -7,6 +8,9 @@ export class Map {
         this.game = game;
 
         // Initialiser les objets de la map
-        this.floor = new Floor(this.game);
+        this.objects = new Objects(this.game);
+
+        // Initialiser les lumières de la map
+        this.lights = new Lights(this.game);
     }
 }
