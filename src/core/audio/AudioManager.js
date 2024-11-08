@@ -1,8 +1,8 @@
 export class AudioManager {
-    constructor(THREE, game)
+    constructor(game)
     {
         // Constructeur
-        this.THREE = THREE;
+        this.THREE = game.scene.THREE;
         this.scene = game.scene.scene;
         this.camera = game.camera.camera;
 
