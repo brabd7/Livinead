@@ -17,7 +17,7 @@ export class AudioManager {
         this.sounds = {};
     }
 
-    loadSound(name, path, isPositional = false, loop = false, volume = 0.5, rate)
+    loadSound(name, path, isPositional = false, loop = false, volume = 0.5, rate = 1)
     {
         let sound; 
 

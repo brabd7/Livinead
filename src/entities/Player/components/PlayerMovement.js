@@ -3,10 +3,10 @@ export class PlayerMovement {
     {
         // Constructeur
         this.player = player;
-        this.THREE = player.THREE;
-        this.cameraController = player.playerCameraController.cameraController;
+        this.THREE = this.player.game.scene.THREE;
+        this.cameraController = this.player.playerCameraController.cameraController;
         this.playerBody = this.player.playerPhysics.body;
-        this.audioManager = this.player.audioManager;
+        this.audioManager = this.player.game.audioManager;
 
         // Paramètres
         this.moveSpeed = 15;

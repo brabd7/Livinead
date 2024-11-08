@@ -6,7 +6,15 @@ export class PlayerWeapon {
         // Constructeur
         this.player = player; 
 
+        // Paramètres
+        this.aim = false;
+
         // Pour l'instant, vu qu'il n'y a qu'une arme, on l'initialise ici
-        this.glock = new Glock(this.player);
+        this.currentWeapon = new Glock(this);
+    }
+
+    update()
+    {
+        this.currentWeapon.update();
     }
 }

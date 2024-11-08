@@ -4,6 +4,7 @@ export class PlayerControl {
         // Constructeur
         this.player = player;
         this.playerMovement = this.player.playerMovement;
+        this.playerWeapon = this.player.playerWeapon;
 
         // Initialiser les contrôles
         this.initControl();
@@ -13,6 +14,7 @@ export class PlayerControl {
     {
         this.moveControl();
         this.jumpControl();
+        this.aimControl();
     }
 
     moveControl()
@@ -64,6 +66,23 @@ export class PlayerControl {
             if (event.code == "Space")
             {
                 this.playerMovement.jump = true;
+            }
+        })
+    }
+
+    aimControl()
+    {
+        document.addEventListener('mousedown', (event) =>{
+            if (event.button == 2)
+            {
+                this.playerWeapon.aim = true;
+            }
+        })
+
+        document.addEventListener('mouseup', (event) =>{
+            if (event.button == 2)
+            {
+                this.playerWeapon.aim = false;
             }
         })
     }

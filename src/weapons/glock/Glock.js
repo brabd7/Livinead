@@ -1,14 +1,16 @@
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GlockSounds } from './components/GlockSounds';
 
 export class Glock {
-    constructor(player)
+    constructor(playerWeapon)
     {
         // Constructeur
-        this.player = player;
-        this.camera = this.player.game.camera.camera;
+        this.playerWeapon = playerWeapon;
+        this.camera = this.playerWeapon.player.game.camera.camera;
         
-        // Initialiser la classe qui charge les modèles 3D
+        // Initialiser la classe
         this.loader = new GLTFLoader();
+        this.glockSounds = new GlockSounds(this);
 
         // Initialiser le glock
         this.loadGlockModel();
@@ -27,5 +29,35 @@ export class Glock {
             // Ajouter en tant qu'enfant à la caméra
             this.camera.add(this.glock);
         })
+    }
+
+    update()
+    {
+        this.aim();
+        this.playSounds();
+    }
+
+    aim()
+    {
+        if (this.glock)
+        {
+            if (this.playerWeapon.aim)
+            {
+                this.glock.position.set(-0.366, -0.23, -0.35);
+            }
+            else 
+            {
+                this.glock.position.set(-0.2, -0.3, -0.35);
+            }
+        }
+    }
+
+    playSounds()
+    {
+        // Viser
+        if (this.playerWeapon.aim)
+        {
+
+        }
     }
 }

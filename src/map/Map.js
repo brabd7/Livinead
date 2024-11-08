@@ -8,9 +8,9 @@ export class Map {
         this.game = game;
 
         // Initialiser les objets de la map
-        this.objects = new Objects(this.game);
+        this.objects = new Objects(this);
 
         // Initialiser les lumières de la map
-        this.lights = new Lights(this.game);
+        this.lights = new Lights(this);
     }
 }

@@ -10,8 +10,6 @@ export class Player {
     {
         // Constructeur
         this.game = game;
-        this.THREE = this.game.scene.THREE;
-        this.audioManager = this.game.audioManager;
 
         // Initialiser les modules du joueur
         this.playerSounds = new PlayerSounds(this);
@@ -25,5 +23,6 @@ export class Player {
     update()
     {
         this.playerMovement.update();
+        this.playerWeapon.update();
     }
 }
