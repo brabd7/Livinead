@@ -7,6 +7,7 @@ export class Glock {
         // Constructeur
         this.playerWeapon = playerWeapon;
         this.camera = this.playerWeapon.player.game.camera.camera;
+        this.audioManager = this.playerWeapon.player.game.audioManager;
         
         // Initialiser la classe
         this.loader = new GLTFLoader();
@@ -53,11 +54,19 @@ export class Glock {
     }
 
     playSounds()
-    {
+    {        
         // Viser
         if (this.playerWeapon.aim)
         {
-
+            if (!this.glockSounds.aimSoundFlag)
+            {
+                this.audioManager.playSound('aim');
+                this.glockSounds.aimSoundFlag = true;
+            }
+        }
+        else 
+        {
+            this.glockSounds.aimSoundFlag = false;
         }
     }
 }
