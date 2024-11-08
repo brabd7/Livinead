@@ -6,6 +6,7 @@ export class PlayerMovement {
         this.THREE = player.THREE;
         this.cameraController = player.playerCameraController.cameraController;
         this.playerBody = this.player.playerPhysics.body;
+        this.audioManager = this.player.audioManager;
 
         // Paramètres
         this.moveSpeed = 15;
@@ -28,6 +29,7 @@ export class PlayerMovement {
         this.forwardMovement();
         this.rightMovement();
         this.jumpMovement();
+        this.playSounds();
     }
 
     getCurrentPlayerDirection()
@@ -41,7 +43,7 @@ export class PlayerMovement {
     }
 
     forwardMovement()
-    {
+    {        
         if (this.moveForward)
         {
             this.playerBody.velocity.x = this.currentPlayerDirection.x * this.moveSpeed;
@@ -79,6 +81,29 @@ export class PlayerMovement {
         {
             this.playerBody.velocity.y += this.jumpForce;
             this.jump = false;
+        }
+    }
+
+    playSounds()
+    {
+        // Marcher
+        if (this.playerBody.position.y <= 1)
+        {
+            if (this.moveForward || this.moveBackward || this.moveRight || this.moveLeft)
+            {
+                // Jouer le son
+                this.audioManager.playSound('footstep');
+            }
+            else 
+            {
+                // Stopper le son
+                this.audioManager.stopSound('footstep');
+            }
+        }
+        else 
+        {
+            // Stopper le son
+            this.audioManager.stopSound('footstep');
         }
     }
 }

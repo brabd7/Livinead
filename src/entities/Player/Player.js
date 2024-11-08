@@ -2,6 +2,7 @@ import { PlayerCameraController } from "./components/PlayerCameraController";
 import { PlayerPhysics } from "./components/PlayerPhysics";
 import { PlayerMovement } from "./components/PlayerMovement";
 import { PlayerControl } from "./components/PlayerControl";
+import { PlayerSounds } from "./components/PlayerSounds";
 
 export class Player {
     constructor(game)
@@ -9,8 +10,10 @@ export class Player {
         // Constructeur
         this.game = game;
         this.THREE = this.game.scene.THREE;
+        this.audioManager = this.game.audioManager;
 
         // Initialiser les modules du joueur
+        this.playerSounds = new PlayerSounds(this);
         this.playerCameraController = new PlayerCameraController(this);
         this.playerPhysics = new PlayerPhysics(this);
         this.playerMovement = new PlayerMovement(this);

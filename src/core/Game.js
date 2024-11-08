@@ -25,7 +25,7 @@ export class Game {
         this.renderer = new Renderer(THREE);
 
         // Initialiser le gestionnaire d'audio
-        this.audioManager = new AudioManager();
+        this.audioManager = new AudioManager(THREE, this);
 
         // Initialiser la map
         this.map = new Map(this);
